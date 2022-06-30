@@ -6,7 +6,7 @@ class Rabbit extends Animal{
         this.name = name;
     };
 
-    play() {
+    plays() {
         this.happiness += 10;
         this.stamina -= 10;
         this.hunger += 10;
@@ -16,7 +16,7 @@ class Rabbit extends Animal{
         return this;
     };
 
-    sleep() {
+    sleeps() {
         this.stamina += 10;
         this.happiness += 10;
         this.hunger += 10;

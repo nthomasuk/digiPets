@@ -6,17 +6,17 @@ class Dog extends Animal{
         this.name = name;
     };
 
-    play() {
+    plays() {
         this.happiness += 10;
         this.stamina -= 10;
         this.hunger += 10;
         this.cleanliness -= 5;
         this.health += 10;
         console.log(`${this.name} has had a great time playing fetch and feels content`);
-        return this;
+        // return this;
     };
 
-    sleep() {
+    sleeps() {
         this.stamina += 10;
         this.happiness += 10;
         this.hunger += 10;
@@ -24,9 +24,9 @@ class Dog extends Animal{
         this.happiness += 10;
         this.cleanliness -= 10;
         console.log(`${this.name} is sound asleep dreaming of chasing rabbits`);
-        return this;
+        // return this;
     };
 
 }
 
-export { Dog };
+module.exports = { Dog };

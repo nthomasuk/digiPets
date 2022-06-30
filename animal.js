@@ -40,7 +40,7 @@ class Animal {
         if(this.health >= this.minHealth && this.health < this.maxHealth) {
             this.health += 10;
             this.hunger -= 10;
-            this.happiness +=5;
+            this.happiness += 5;
             console.log(`${this.name} has eaten and has a big full belly!`);
             return this;
         } else if(this.health = this.maxHealth) {
@@ -48,17 +48,17 @@ class Animal {
             this.hunger -= 10;
             this.happiness -= 5;
             console.log(`${this.name} is hungry and not feeling too good`);
-            return this;
+            // return this;
         }
     };
 
-    bathe() {
-        this.cleanliness += 10;
-        this.happiness += 5;
+    bathes() {
+        this.cleanliness = this.cleanliness + 10;
+        this.happiness = 5;
         this.stamina += 5;
         this.hunger += 10;
         console.log(`${this.name} is fresh as a daisy and feeling great!`)
-        return this;
+        // return this;
     }
 };
 

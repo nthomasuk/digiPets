@@ -12,6 +12,7 @@ import { Rabbit } from './rabbit.js'
 let playerName;
 let userPet;
 
+
 const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
 
 try {
@@ -83,19 +84,78 @@ What are you going to call your ${typeOfPet}?`
             userPet = new Rabbit(petName);
             spinner.success({ text: `Nice, ${playerName}; meet ${petName} your new digiPet - Rabbit Edition!`});
         }
-    
+        
         
     }; 
     
+    const activies = async () => {
+        userPet.stats();
+
+        const { choice } = await inquirer.prompt({
+            name: 'activities',
+            type: 'list',
+            message: `What would you like to do with your digiPet?`,
+            choices: [
+                {
+                    key: "a",
+                    name: `Feed?`,
+                    value: "eats",
+                },
+                {
+                    key: "b",
+                    name: `Play?`,
+                    value: "plays",
+                },
+                {
+                    key: "c",
+                    name: `Put to bed?`,
+                    value: "sleeps",
+                },
+                {
+                    key: "d",
+                    name: `Put in the shower?`,
+                    value: "bathes",
+                },
+                {
+                    key: "e",
+                    name: `Quit?`,
+                    value: "quits",
+                },
+            ],
+        });    
+    
+        if ( choice === 'eats') userPet.eats();
+        if ( choice === 'plays') userPet.plays();
+        if ( choice === 'sleeps') userPet.sleeps();
+        if ( choice === 'bathes') userPet.bathes();
+        if ( choice === 'quits') {
+            const quitChoice = quits();
+            if (quitChoice){
+                
+            };
+        }
+        activies();
+    };
+        const quits = async () => {
+            console.log(`Maybe they're is better off without you.`)
+            process.exit(1);
+        }; 
         
+        const gameOver = async () => {
+            console.log(`Maybe you should get a pet rock.`)
+            process.exit(1);
+        }; 
 
-
+    
 await welcome();
 await askName();
 await whichPet();
+await activies();
+    
 } catch (error) {
     console.log('If you are seeing this, you\'ve taken a wrong turn somewhere.', error)
 };
+
 
 
 

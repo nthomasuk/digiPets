@@ -52,7 +52,7 @@ class Animal {
             this.health -= 10;
             this.hunger -= 10;
             this.happiness -= 5;
-            console.log(`${chalk.magenta(`${this.name}`)} is over-eating and not feeling too good`);
+            console.log(`${chalk.magenta(`${this.name}`)} has overeaten and is not feeling too good`);
         }
     };
 

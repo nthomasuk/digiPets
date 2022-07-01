@@ -152,7 +152,7 @@ What are you going to call your ${chalk.magenta(`${typeOfPet}`)}?`
     };
     
     const quits = async () => {
-        console.log(`A quiter 'ay, ${chalk.magenta(`${playerName}`)}? Maybe ${chalk.magenta(`${userPet.name}`)} is better off without you.`);
+        console.log(`A quitter 'ay, ${chalk.magenta(`${playerName}`)}? Maybe ${chalk.magenta(`${userPet.name}`)} is better off without you.`);
         process.exit(1);
     }; 
     

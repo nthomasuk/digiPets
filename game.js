@@ -32,7 +32,7 @@ try {
         const answers = await inquirer.prompt({
             name: 'askName',
             type: 'input',
-            message: 'What is your name?',
+            message: `What is your ${chalk.magenta('name')}?`,
             default(){
                 return 'Player';
             },
@@ -45,21 +45,21 @@ try {
         const {typeOfPet} = await inquirer.prompt({
             name: 'typeOfPet',
             type: 'list',
-            message: 'Which species of digiPet would you like?',
+            message: `Which ${chalk.magenta('species')} of digiPet would you like?`,
             choices: [
                 {
                     key: "a",
-                    name: "Dog",
+                    name: `${chalk.red.bold('Dog')}`,
                     value: "dog",
                 },
                 {
                     key: "b",
-                    name: "Cat",
+                    name: `${chalk.blue.bold('Cat')}`,
                     value: "cat",
                 },
                 {
                     key: "c",
-                    name: "Rabbit",
+                    name: `${chalk.yellow.bold('Rabbit')}`,
                     value: "rabbit",
                 }
             ],
@@ -71,18 +71,18 @@ try {
         const {petName} = await inquirer.prompt({
             name: 'petName',
             type: 'input',
-            message: `Excellent, we have one left in stock! 
-What are you going to call your ${typeOfPet}?`
+            message: `Excellent, we have ${chalk.magenta('1')} left in stock! 
+What are you going to call your ${chalk.magenta(`${typeOfPet}`)}?`
         });
         if (typeOfPet === 'dog'){
             userPet = new Dog(petName);
-            spinner.success({ text: `Nice, ${playerName}; meet ${petName} your new digiPet - Dog Edition!`});
+            spinner.success({ text: `Nice, ${chalk.magenta(`${playerName}`)}; meet ${chalk.magenta(`${petName}`)} your new digiPet - Dog Edition!`});
         } else if (typeOfPet === 'cat'){
             userPet = new Cat(petName);
-            spinner.success({ text: `Nice, ${playerName}; meet ${petName} your new digiPet - Cat Edition!`}); 
+            spinner.success({ text: `Nice, ${chalk.magenta(`${playerName}`)}; meet ${chalk.magenta(`${petName}`)} your new digiPet - Cat Edition!`}); 
         } else {
             userPet = new Rabbit(petName);
-            spinner.success({ text: `Nice, ${playerName}; meet ${petName} your new digiPet - Rabbit Edition!`});
+            spinner.success({ text: `Nice, ${chalk.magenta(`${playerName}`)}; meet ${chalk.magenta(`${petName}`)} your new digiPet - Rabbit Edition!`});
         }
         
         
@@ -95,31 +95,31 @@ What are you going to call your ${typeOfPet}?`
         const { choice } = await inquirer.prompt({
             name: 'choice',
             type: 'list',
-            message: `What would you like to do with your digiPet?`,
+            message: `What would you like to do with your ${chalk.magenta(`digiPet`)}?`,
             choices: [
                 {
                     key: "a",
-                    name: `Feed?`,
+                    name: `${chalk.red.bold(`Feed`)}?`,
                     value: "eats",
                 },
                 {
                     key: "b",
-                    name: `Play?`,
+                    name: `${chalk.blue.bold(`Play`)}?`,
                     value: "plays",
                 },
                 {
                     key: "c",
-                    name: `Put to bed?`,
+                    name: `${chalk.yellow.bold(`Put to bed`)}?`,
                     value: "sleeps",
                 },
                 {
                     key: "d",
-                    name: `Put in the shower?`,
+                    name: `${chalk.green.bold(`Put in the shower`)}?`,
                     value: "bathes",
                 },
                 {
                     key: "e",
-                    name: `Quit?`,
+                    name: `${chalk.gray.bold(`Quit`)}?`,
                     value: "quits",
                 },
             ],
@@ -154,14 +154,14 @@ What are you going to call your ${typeOfPet}?`
     };
     
     const quits = async () => {
-        console.log(`A quiter 'ay? Maybe they're is better off without you.`);
+        console.log(`A quiter 'ay, ${chalk.magenta(`${playerName}`)}? Maybe ${chalk.magenta(`${userPet.name}`)} is better off without you.`);
         // await sleep();
         process.exit(1);
     }; 
     
     const gameOver = async () => {
         userPet.getStats();
-        console.log(`Well, you neglected something along the way...Maybe you should get a pet rock.`);
+        console.log(`Well, you neglected something along the way ${chalk.magenta(`${playerName}`)}...Maybe you should get a pet rock.`);
         // await sleep();
         process.exit(1);
     }; 

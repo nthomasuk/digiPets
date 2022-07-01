@@ -1,4 +1,5 @@
-import { Animal } from './animal.js'
+import { Animal } from './animal.js';
+import chalk from 'chalk';
 
 class Rabbit extends Animal{
     constructor(name){
@@ -12,7 +13,7 @@ class Rabbit extends Animal{
         this.hunger += 10;
         this.cleanliness -= 5;
         // this.health += 10;
-        console.log(`${this.name} doesn't need to play, he loves to organise!`);
+        console.log(`${chalk.magenta(`${this.name}`)} doesn't need to play, he loves to organise!`);
         return this;
     };
 
@@ -23,7 +24,7 @@ class Rabbit extends Animal{
         this.health += 10;
         this.happiness += 10;
         this.cleanliness -= 10;
-        console.log(`${this.name} is sound asleep dreaming of Bugs Bunny`);
+        console.log(`${chalk.magenta(`${this.name}`)} is sound asleep dreaming of Lola Bunny`);
         return this;
     };
 

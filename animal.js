@@ -1,3 +1,5 @@
+import chalk from 'chalk';
+
 class Animal {
     constructor(name) {
         this.name = name;
@@ -44,13 +46,13 @@ class Animal {
             this.health += 10;
             this.hunger -= 10;
             this.happiness += 5;
-            console.log(`${this.name} has eaten and has a big full belly!`);
+            console.log(`${chalk.magenta(`${this.name}`)} has eaten and has a big full belly!`);
             return this;
         } else if(this.health = this.maxHealth) {
             this.health -= 10;
             this.hunger -= 10;
             this.happiness -= 5;
-            console.log(`${this.name} is over-eating and not feeling too good`);
+            console.log(`${chalk.magenta(`${this.name}`)} is over-eating and not feeling too good`);
             // return this;
         }
     };
@@ -60,7 +62,7 @@ class Animal {
         this.happiness += 5;
         this.stamina += 5;
         this.hunger += 10;
-        console.log(`${this.name} is fresh as a daisy and feeling great!`)
+        console.log(`${chalk.magenta(`${this.name}`)} is fresh as a daisy and feeling great!`)
         // return this;
     }
 };

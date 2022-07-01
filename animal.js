@@ -53,7 +53,6 @@ class Animal {
             this.hunger -= 10;
             this.happiness -= 5;
             console.log(`${chalk.magenta(`${this.name}`)} is over-eating and not feeling too good`);
-            // return this;
         }
     };
 
@@ -63,7 +62,6 @@ class Animal {
         this.stamina += 5;
         this.hunger += 10;
         console.log(`${chalk.magenta(`${this.name}`)} is fresh as a daisy and feeling great!`)
-        // return this;
     }
 };
 

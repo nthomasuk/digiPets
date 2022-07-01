@@ -12,9 +12,7 @@ class Dog extends Animal{
         this.stamina -= 10;
         this.hunger += 10;
         this.cleanliness -= 5;
-        // this.health += 10;
         console.log(`${chalk.magenta(`${this.name}`)} has had a great time playing fetch and feels content`);
-        // return this;
     };
 
     sleeps() {
@@ -25,7 +23,6 @@ class Dog extends Animal{
         this.happiness += 10;
         this.cleanliness -= 10;
         console.log(`${chalk.magenta(`${this.name}`)} is sound asleep dreaming of chasing rabbits`);
-        // return this;
     };
 
 }

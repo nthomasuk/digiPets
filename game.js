@@ -153,14 +153,12 @@ What are you going to call your ${chalk.magenta(`${typeOfPet}`)}?`
     
     const quits = async () => {
         console.log(`A quiter 'ay, ${chalk.magenta(`${playerName}`)}? Maybe ${chalk.magenta(`${userPet.name}`)} is better off without you.`);
-        // await sleep();
         process.exit(1);
     }; 
     
     const gameOver = async () => {
         userPet.getStats();
         console.log(`Well, you neglected something along the way ${chalk.magenta(`${playerName}`)}...Maybe you should get a pet rock.`);
-        // await sleep();
         process.exit(1);
     }; 
 

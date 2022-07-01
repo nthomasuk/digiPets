@@ -18,8 +18,8 @@ class Animal {
     };
 
 
-    stats() {
-        return console.table({
+    getStats() {
+        console.table({
             name: this.name,
             age: this.age,
             health: this.health,
@@ -28,16 +28,19 @@ class Animal {
             cleanliness: this.cleanliness,
             happiness: this.happiness,
         });
+        return this;
     };
 
-    checkStats() {
-        stats();
-
-
-    }
+    growUp() {
+        this.age++;
+        this.health -= -5;
+        this.happiness -= 5;
+        this.stamina -= 5;
+        this.hunger += 5;
+    }  
 
     eats() {
-        if(this.health >= this.minHealth && this.health < this.maxHealth) {
+        if(this.health > this.minHealth && this.health < this.maxHealth) {
             this.health += 10;
             this.hunger -= 10;
             this.happiness += 5;
@@ -47,14 +50,14 @@ class Animal {
             this.health -= 10;
             this.hunger -= 10;
             this.happiness -= 5;
-            console.log(`${this.name} is hungry and not feeling too good`);
+            console.log(`${this.name} is over-eating and not feeling too good`);
             // return this;
         }
     };
 
     bathes() {
-        this.cleanliness = this.cleanliness + 10;
-        this.happiness = 5;
+        this.cleanliness += 10;
+        this.happiness += 5;
         this.stamina += 5;
         this.hunger += 10;
         console.log(`${this.name} is fresh as a daisy and feeling great!`)

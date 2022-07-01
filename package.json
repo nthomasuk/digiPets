@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "game.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +14,7 @@
     "chalk-animation": "^2.0.2",
     "figlet": "^1.5.2",
     "gradient-string": "^2.0.1",
-    "inquirer": "^9.0.0",
+    "inquirer": "^8.2.4",
     "nanospinner": "^1.1.0"
   }
 }

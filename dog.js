@@ -11,7 +11,7 @@ class Dog extends Animal{
         this.stamina -= 10;
         this.hunger += 10;
         this.cleanliness -= 5;
-        this.health += 10;
+        // this.health += 10;
         console.log(`${this.name} has had a great time playing fetch and feels content`);
         // return this;
     };
@@ -29,4 +29,4 @@ class Dog extends Animal{
 
 }
 
-module.exports = { Dog };
+export { Dog };

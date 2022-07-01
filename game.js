@@ -89,10 +89,11 @@ What are you going to call your ${typeOfPet}?`
     }; 
     
     const activies = async () => {
-        userPet.stats();
+        const stats = userPet.getStats();
+        userPet.growUp();
 
         const { choice } = await inquirer.prompt({
-            name: 'activities',
+            name: 'choice',
             type: 'list',
             message: `What would you like to do with your digiPet?`,
             choices: [
@@ -128,29 +129,48 @@ What are you going to call your ${typeOfPet}?`
         if ( choice === 'plays') userPet.plays();
         if ( choice === 'sleeps') userPet.sleeps();
         if ( choice === 'bathes') userPet.bathes();
-        if ( choice === 'quits') {
-            const quitChoice = quits();
-            if (quitChoice){
-                
-            };
-        }
+        if ( choice === 'quits') quits();
+
+        if (stats.health <= stats.minHealth) gameOver();
+        if (stats.health > stats.maxHealth) {
+            stats.health = stats.maxHealth;
+        };
+        if (stats.hunger >= stats.maxHunger) gameOver();
+        if (stats.hunger <= stats.minHunger) {
+            stats.health -= 10;
+        };
+        if (stats.cleanliness <= 50 && stats.cleanliness > 0) {
+            stats.health -= 10;
+            stats.happiness -= 10;
+        };
+        if (stats.cleanliness <= 0) {
+            stats.health -= 20;
+            stats.happiness -= 30;
+        };
+        if (stats.happiness < 0) gameOver();
+
+        await sleep();
         activies();
     };
-        const quits = async () => {
-            console.log(`Maybe they're is better off without you.`)
-            process.exit(1);
-        }; 
-        
-        const gameOver = async () => {
-            console.log(`Maybe you should get a pet rock.`)
-            process.exit(1);
-        }; 
+    
+    const quits = async () => {
+        console.log(`A quiter 'ay? Maybe they're is better off without you.`);
+        // await sleep();
+        process.exit(1);
+    }; 
+    
+    const gameOver = async () => {
+        userPet.getStats();
+        console.log(`Well, you neglected something along the way...Maybe you should get a pet rock.`);
+        // await sleep();
+        process.exit(1);
+    }; 
 
     
-await welcome();
-await askName();
-await whichPet();
-await activies();
+    await welcome();
+    await askName();
+    await whichPet();
+    await activies();
     
 } catch (error) {
     console.log('If you are seeing this, you\'ve taken a wrong turn somewhere.', error)

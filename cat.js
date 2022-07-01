@@ -11,7 +11,7 @@ class Cat extends Animal{
         this.stamina -= 10;
         this.hunger += 10;
         this.cleanliness -= 5;
-        this.health += 10;
+        // this.health += 10;
         console.log(`${this.name} has had lots of fun playing with a ball of yarn!`);
         return this;
     };
